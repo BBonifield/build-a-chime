@@ -1,9 +1,9 @@
 // import React from 'react';
 // import { shallow } from 'enzyme';
 
-// import ChimesCountSelector from '../index';
+// import ChimeChoices from '../index';
 
-describe('<ChimesCountSelector />', () => {
+describe('<ChimeChoices />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false);
   });

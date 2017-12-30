@@ -24,6 +24,7 @@ import messages from './messages';
 import reducer from './reducer';
 
 import ChimesCountSelector from 'containers/ChimesCountSelector';
+import ChimeChoices from 'components/ChimeChoices';
 import ChimesPreview from 'components/ChimesPreview';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -35,6 +36,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         </h1>
         <ChimesCountSelector chimeCount={this.props.chimeCount} />
         <ChimesPreview chimes={this.props.chimes} />
+        <ChimeChoices />
       </div>
     );
   }
@@ -43,17 +45,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
 HomePage.propTypes = {
   chimeCount: PropTypes.number,
   chimes: PropTypes.arrayOf(PropTypes.string),
-  // onSubmitForm: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
-  return {
-    // onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-    // onSubmitForm: (evt) => {
-      // if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      // dispatch(loadRepos());
-    // },
-  };
+  return {};
 }
 
 const mapStateToProps = createStructuredSelector({
