@@ -5,3 +5,4 @@ export const CHIME_STYLE_BROWN = 'brown';
 
 export const DEFAULT_CHIME_COUNT = 7;
 export const DEFAULT_CHIME_STYLE = CHIME_STYLE_BLANK;
+export const SET_CHIME_COUNT = 'build-a-chime/HomePage/SET_CHIME_COUNT';

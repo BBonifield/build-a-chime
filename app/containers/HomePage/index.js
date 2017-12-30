@@ -23,6 +23,7 @@ import injectReducer from 'utils/injectReducer';
 import messages from './messages';
 import reducer from './reducer';
 
+import ChimesCountSelector from 'containers/ChimesCountSelector';
 import ChimesPreview from 'components/ChimesPreview';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -32,6 +33,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         <h1>
           <FormattedMessage {...messages.header} />
         </h1>
+        <ChimesCountSelector chimeCount={this.props.chimeCount} />
         <ChimesPreview chimes={this.props.chimes} />
       </div>
     );

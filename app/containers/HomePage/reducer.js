@@ -1,26 +1,43 @@
 import { fromJS } from 'immutable';
+import { isNull } from 'lodash';
 
 import {
   DEFAULT_CHIME_COUNT,
-  DEFAULT_CHIME_STYLE
+  DEFAULT_CHIME_STYLE,
+  SET_CHIME_COUNT,
 } from './constants';
 
 // // The initial state of the App
 const initialState = fromJS({
   chimeCount: DEFAULT_CHIME_COUNT,
-  chimes: Array(DEFAULT_CHIME_COUNT).fill(DEFAULT_CHIME_STYLE)
+  chimes: buildChimes(DEFAULT_CHIME_COUNT)
 });
 
 function homeReducer(state = initialState, action) {
   switch (action.type) {
-    // case CHANGE_USERNAME:
+    case SET_CHIME_COUNT:
+      const oldChimes = state.get('chimes').toJS();
 
-      // // Delete prefixed '@' from the github username
-      // return state
-        // .set('username', action.name.replace(/@/gi, ''));
+      const newChimes = buildChimes(action.count).map((style, idx) => {
+        if (idx <= oldChimes.length - 1) {
+          return oldChimes[idx];
+        } else {
+          return style;
+        }
+      });
+
+      console.log(newChimes)
+
+      return state
+        .set('chimeCount', action.count)
+        .set('chimes', fromJS(newChimes));
     default:
       return state;
   }
+}
+
+function buildChimes(size) {
+  return Array(size).fill(DEFAULT_CHIME_STYLE);
 }
 
 export default homeReducer;
