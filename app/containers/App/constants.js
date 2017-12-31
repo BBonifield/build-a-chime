@@ -10,3 +10,11 @@
  */
 
 export const DEFAULT_LOCALE = 'en';
+
+export const CHIME_STYLE_BLANK = 'blank';
+export const CHIME_STYLE_TAN = 'tan';
+export const CHIME_STYLE_CREAM = 'cream';
+export const CHIME_STYLE_BROWN = 'brown';
+
+export const DEFAULT_CHIME_COUNT = 7;
+export const DEFAULT_CHIME_STYLE = CHIME_STYLE_BLANK;

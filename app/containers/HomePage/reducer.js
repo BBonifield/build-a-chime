@@ -4,6 +4,9 @@ import { isNull } from 'lodash';
 import {
   DEFAULT_CHIME_COUNT,
   DEFAULT_CHIME_STYLE,
+} from 'containers/App/constants';
+
+import {
   SET_CHIME_COUNT,
 } from './constants';
 
