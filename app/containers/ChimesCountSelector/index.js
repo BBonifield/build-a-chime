@@ -42,27 +42,15 @@ export class ChimesCountSelector extends React.PureComponent { // eslint-disable
 
 ChimesCountSelector.propTypes = {
   onClickOption: PropTypes.func.isRequired,
-  chimeCount: PropTypes.number,
+  chimeCount: PropTypes.number.isRequired,
 };
-
-const mapStateToProps = createStructuredSelector({
-  chimeCount: makeSelectChimeCount(),
-});
 
 function mapDispatchToProps(dispatch) {
   return {
     onClickOption: function (evt) {
-      console.log(setChimeCount(this.props.count));
       return dispatch(setChimeCount(this.props.count));
     },
   };
 }
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
-
-const withReducer = injectReducer({ key: 'default', reducer });
-
-export default compose(
-  withReducer,
-  withConnect,
-)(ChimesCountSelector);
+export default connect(null, mapDispatchToProps)(ChimesCountSelector);
