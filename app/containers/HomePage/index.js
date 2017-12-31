@@ -23,7 +23,7 @@ import injectReducer from 'utils/injectReducer';
 import messages from './messages';
 import reducer from './reducer';
 
-import ChimesCountSelector from 'containers/ChimesCountSelector';
+import ChimesCountSelector from 'components/ChimesCountSelector';
 import ChimeChoices from 'components/ChimeChoices';
 import ChimesPreview from 'components/ChimesPreview';
 
