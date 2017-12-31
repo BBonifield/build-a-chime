@@ -1,23 +1,11 @@
+img {
+  width: 100px;
+}
+
 .with-top-twine {
   border-top: 1px solid black;
 }
 
 .with-bottom-twine {
   border-bottom: 1px solid black;
-}
-
-.chime-style-blank {
-  background: transparent;
-}
-
-.chime-style-white {
-  background: white;
-}
-
-.chime-style-gray {
-  background: gray;
-}
-
-.chime-style-brown {
-  background: brown;
 }

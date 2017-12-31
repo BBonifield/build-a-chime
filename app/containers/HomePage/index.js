@@ -16,6 +16,7 @@ import { FormattedMessage } from 'react-intl';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { Container, Row, Col } from 'react-grid-system';
 import { makeSelectChimeCount, makeSelectChimes } from 'containers/App/selectors';
 
 import injectReducer from 'utils/injectReducer';
@@ -27,24 +28,44 @@ import ChimesCountSelector from 'components/ChimesCountSelector';
 import ChimeChoices from 'components/ChimeChoices';
 import ChimesPreview from 'components/ChimesPreview';
 
+import '!file-loader?name=[name].[ext]!images/wall-peg.svg';
+import '!file-loader?name=[name].[ext]!images/chime-brown.svg';
+import '!file-loader?name=[name].[ext]!images/chime-tan.svg';
+import '!file-loader?name=[name].[ext]!images/chime-cream.svg';
+import '!file-loader?name=[name].[ext]!images/chime-blank.svg';
+
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
-        <h1>
-          <FormattedMessage {...messages.header} />
-        </h1>
-        <ChimesCountSelector chimeCount={this.props.chimeCount} />
-        <ChimesPreview chimes={this.props.chimes} />
-        <ChimeChoices />
-      </div>
+      <Container fluid>
+        <Row>
+          <Col>
+            <h1>
+              <FormattedMessage {...messages.header} />
+            </h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <ChimesCountSelector chimeCount={this.props.chimeCount} />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={6} md={4} offset={{ md: 2 }}>
+            <ChimesPreview chimes={this.props.chimes} />
+          </Col>
+          <Col xs={6} md={4} offset={{ md: 1 }}>
+            <ChimeChoices />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
 
 HomePage.propTypes = {
-  chimeCount: PropTypes.number,
-  chimes: PropTypes.arrayOf(PropTypes.string),
+  chimeCount: PropTypes.number.isRequired,
+  chimes: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export function mapDispatchToProps(dispatch) {

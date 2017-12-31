@@ -6,25 +6,31 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 import './index.css'
 
+const Self = styled.div`
+  text-align: center;
+`;
 
 function Chime(props) {
-  const classes = [ `chime-style-${props.chimeStyle}` ];
-
+  const classes = [];
   if (props.renderBottomTwine) classes.push("with-bottom-twine");
   if (props.renderTopTwine) classes.push("with-top-twine");
 
+  const src = `chime-${props.chimeStyle}.svg`;
+
   return (
-    <div className={classes.join(" ")}>chime: {props.chimeStyle}</div>
+    <Self className={classes.join(" ")}>
+      <img src={src} />
+    </Self>
   );
 }
 
 Chime.defaultProps = {
-  renderTopTwine: true,
-  renderBottomTwine: true,
+  renderTopTwine: false,
+  renderBottomTwine: false,
 };
 
 Chime.propTypes = {
