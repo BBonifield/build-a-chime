@@ -10,4 +10,8 @@ export default defineMessages({
     id: 'app.components.HomePage.header',
     defaultMessage: 'Build A Chime',
   },
+  chimeCount: {
+    id: 'app.components.HomePage.chimeCount',
+    defaultMessage: 'Chime Count:',
+  },
 });

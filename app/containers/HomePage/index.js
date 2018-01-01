@@ -46,14 +46,21 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     return (
       <DragDropContextProvider backend={HTML5Backend}>
         <Container fluid>
-          <Row>
+          <Row style={{ background: 'white' }}>
             <Col>
-              <h1>
+              <h1 style={{ textAlign: 'center' }}>
                 <FormattedMessage {...messages.header} />
               </h1>
             </Col>
           </Row>
-          <Row>
+          <Row style={{ background: 'white' }}>
+            <Col>
+              <h3 style={{ textAlign: 'center' }}>
+                <FormattedMessage {...messages.chimeCount} />
+              </h3>
+            </Col>
+          </Row>
+          <Row style={{ background: 'white', borderBottom: '1px solid #ddd', marginBottom: '1em' }}>
             <Col>
               <ChimesCountSelector chimeCount={this.props.chimeCount} />
             </Col>

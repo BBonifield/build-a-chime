@@ -11,11 +11,10 @@ import styled from 'styled-components';
 import ChimeCountOption from 'components/ChimeCountOption';
 import { AVAILABLE_COUNTS } from './constants';
 
-
 function ChimesCountSelector(props) {
   const Wrapper = styled.div`
     text-align: center;
-    margin: 2em 0;
+    margin: 1em 0;
   `;
 
   return (

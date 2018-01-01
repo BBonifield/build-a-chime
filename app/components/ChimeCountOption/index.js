@@ -11,15 +11,27 @@ import styled from 'styled-components';
 
 import { setChimeCount } from 'containers/HomePage/actions';
 
-import './index.css'
-
 const Self = styled.div`
   display: inline-block;
   width: 3em;
   padding: .5em 0;
-  border: 1px solid #ddd;
   margin: 0 .5em;
   cursor: pointer;
+
+  border-radius: 4px;
+
+  &:hover {
+    border: 2px solid #76A6B9;
+  }
+
+  background: white;
+  border: 2px solid #ddd;
+
+  &.selected {
+    font-weight: bolder;
+    background: #E2F7F7;
+    border: 2px solid #76A6B9;
+  }
 `;
 
 class ChimeCountOption extends React.Component { // eslint-disable-line react/prefer-stateless-function

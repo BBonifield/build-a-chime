@@ -11,17 +11,16 @@ injectGlobal`
   }
 
   body {
-    // font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-family: 'Courgette', cursive;
   }
 
-  body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  h1 {
+    font-size: 3em;
+    margin: 0;
   }
 
-  h1 {
-    // font-family: 'Courgette', cursive;
-    font-size: 3em;
+  h3 {
+    margin: 1em 0 0;
   }
 
   #app {
