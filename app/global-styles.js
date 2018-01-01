@@ -1,5 +1,7 @@
 import { injectGlobal } from 'styled-components';
 
+import background from 'images/scribble_light.png';
+
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
   html,
@@ -9,15 +11,21 @@ injectGlobal`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    // font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Courgette', cursive;
   }
 
   body.fontLoaded {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
+  h1 {
+    // font-family: 'Courgette', cursive;
+    font-size: 3em;
+  }
+
   #app {
-    background-color: #fafafa;
+    background: url(${background});
     min-height: 100%;
     min-width: 100%;
   }

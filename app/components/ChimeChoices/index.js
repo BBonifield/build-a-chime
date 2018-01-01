@@ -7,60 +7,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { DragSource } from 'react-dnd';
+import { Container, Row, Col } from 'react-grid-system';
 
 import { AVAILABLE_CHIME_STYLES } from './constants';
-import Chime from 'components/Chime';
 
-/**
- * Implements the drag source contract.
- */
-const cardSource = {
-  beginDrag(props) {
-    return {
-      text: props.text
-    };
-  }
-};
-
-/**
- * Specifies the props to inject into your component.
- */
-function collect(connect, monitor) {
-  return {
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
-  };
-}
+import DraggableChime from 'components/DraggableChime';
 
 class ChimeChoices extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { isDragging, connectDragSource, text } = this.props;
-
-    return connectDragSource(
-      <div style={{ opacity: isDragging ? 0.5 : 1 }}>
+    return (
+      <Container fluid style={{ overflow: 'hidden', clear: 'both', textAlign: 'center' }}>
         {this.styles()}
-      </div>
+      </Container>
     );
   }
 
   styles() {
-    return AVAILABLE_CHIME_STYLES.map((style) => {
+    return AVAILABLE_CHIME_STYLES.map((style, idx) => {
+      const key = `choice-row-${idx}`;
       return (
-        <Chime chimeStyle={style} />
+        <Row key={key}>
+          <Col>
+            <DraggableChime chimeStyle={style} />
+          </Col>
+        </Row>
       );
     });
   }
 }
 
 ChimeChoices.propTypes = {
-  // Injected by React DnD:
-  isDragging: PropTypes.bool.isRequired,
-  connectDragSource: PropTypes.func.isRequired
 };
 
-// export default ChimeChoices;
-
-
-// Export the wrapped component:
-export default DragSource('something', cardSource, collect)(ChimeChoices);
+export default ChimeChoices;

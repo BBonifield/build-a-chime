@@ -8,9 +8,10 @@ import {
 
 import {
   SET_CHIME_COUNT,
+  SET_CHIME_STYLE,
 } from './constants';
 
-// // The initial state of the App
+// The initial state of the App
 const initialState = fromJS({
   chimeCount: DEFAULT_CHIME_COUNT,
   chimes: buildChimes(DEFAULT_CHIME_COUNT)
@@ -29,11 +30,17 @@ function homeReducer(state = initialState, action) {
         }
       });
 
-      console.log(newChimes)
-
       return state
         .set('chimeCount', action.count)
         .set('chimes', fromJS(newChimes));
+
+    case SET_CHIME_STYLE:
+      const chimes = state.get('chimes').toJS();
+
+      chimes[action.position] = action.chimeStyle;
+
+      return state
+        .set('chimes', fromJS(chimes));
     default:
       return state;
   }
