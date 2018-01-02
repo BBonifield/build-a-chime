@@ -16,11 +16,10 @@ import DraggableChime from 'components/DraggableChime';
 const StyledContainer = styled(Container)`
   overflow: hidden;
   clear: both;
-  text-align: center;
-  background: white;
-  border-radius: 30px;
-  border: 2px solid #eee;
-  padding: 1em 0;
+
+  h3 {
+    margin: 0;
+  }
 `;
 
 class ChimeChoices extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -32,7 +31,9 @@ class ChimeChoices extends React.Component { // eslint-disable-line react/prefer
             <h3>Chime Choices:</h3>
           </Col>
         </Row>
+
         {this.styles()}
+
         <Row style={{ marginTop: '1em' }}>
           <Col>
             <p>More options coming soon...</p>

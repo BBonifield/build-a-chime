@@ -30,6 +30,7 @@ import ChimeChoices from 'components/ChimeChoices';
 import ChimesPreview from 'components/ChimesPreview';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
+import Sidebar from './Sidebar';
 
 import '!file-loader?name=[name].[ext]!images/chime-brown.svg';
 import '!file-loader?name=[name].[ext]!images/chime-tan.svg';
@@ -54,7 +55,9 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
                 <ChimesPreview chimes={this.props.chimes} />
               </Col>
               <Col xs={6} md={3}>
-                <ChimeChoices />
+                <Sidebar>
+                  <ChimeChoices />
+                </Sidebar>
               </Col>
             </Row>
           </Container>

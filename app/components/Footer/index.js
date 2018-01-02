@@ -27,7 +27,7 @@ const Self = styled.div`
 function Footer() {
   return (
     <Self>
-      product of
+      a product of
       <br/>
       <a href="http://fettleandfire.com" target="_blank">
         <img className="logo" src={logo} />
