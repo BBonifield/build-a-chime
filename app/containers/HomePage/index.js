@@ -11,10 +11,11 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import HTML5Backend from 'react-dnd-html5-backend'
+
 import { Container, Row, Col } from 'react-grid-system';
 import { DragDropContextProvider } from 'react-dnd'
+import { every } from 'lodash';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -30,7 +31,10 @@ import ChimeChoices from 'components/ChimeChoices';
 import ChimesPreview from 'components/ChimesPreview';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
+import PurchaseButton from 'components/PurchaseButton';
 import Sidebar from './Sidebar';
+
+import { CHIME_STYLE_BLANK } from 'containers/App/constants';
 
 import '!file-loader?name=[name].[ext]!images/chime-brown.svg';
 import '!file-loader?name=[name].[ext]!images/chime-tan.svg';
@@ -57,6 +61,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
               <Col xs={6} md={3}>
                 <Sidebar>
                   <ChimeChoices />
+                  <PurchaseButton enabled={this.purchaseEnabled()} />
                 </Sidebar>
               </Col>
             </Row>
@@ -66,6 +71,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         <Footer />
       </div>
     );
+  }
+
+  purchaseEnabled() {
+    return every(this.props.chimes, (chimeStyle) => chimeStyle !== CHIME_STYLE_BLANK);
   }
 }
 
