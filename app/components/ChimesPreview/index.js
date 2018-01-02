@@ -30,17 +30,24 @@ class ChimesPreview extends React.Component { // eslint-disable-line react/prefe
   }
 
   renderChimes() {
-    const lastChimeIdx = this.props.chimes.length - 1;
+    const lastChimePosition = this.props.chimes.length - 1;
 
-    return this.props.chimes.map((chimeStyle, idx) => {
-      const key = `chime-row-${idx}`;
-      const renderBottomTwine = idx !== lastChimeIdx;
+    return this.props.chimes.map((chimeStyle, chimePosition) => {
+      const key = `chime-row-${chimePosition}`;
+      const renderBottomTwine = chimePosition !== lastChimePosition;
+
       const attributes = {
         chimeStyle,
+        chimePosition,
         renderBottomTwine,
         renderTopTwine: true,
-        onDrop: (newChimeStyle) => {
-          this.props.dispatch(setChimeStyle(newChimeStyle, idx));
+        onDrop: ({ oldStyle, newStyle, swapPosition }) => {
+          this.props.dispatch(setChimeStyle(newStyle, chimePosition));
+
+          // if chimes are being re-arranged
+          if (swapPosition) {
+            this.props.dispatch(setChimeStyle(oldStyle, swapPosition));
+          }
         }
       };
 

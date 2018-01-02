@@ -13,8 +13,13 @@ import DraggableChime from 'components/DraggableChime';
 
 const chimeTarget = {
   drop(props, monitor) {
-    const chimeStyle = monitor.getItem().chimeStyle;
-    props.onDrop(chimeStyle);
+    const { chimeStyle, chimePosition } = monitor.getItem();
+
+    props.onDrop({
+      oldStyle: props.chimeStyle,
+      newStyle: chimeStyle,
+      swapPosition: chimePosition,
+    });
   }
 };
 
@@ -37,9 +42,10 @@ function DroppableChime(props) {
 
 DroppableChime.propTypes = {
   onDrop: PropTypes.func.isRequired,
+  chimeStyle: PropTypes.string.isRequired,
+  chimePosition: PropTypes.number.isRequired,
 
   // interface for Chime
-  chimeStyle: PropTypes.string.isRequired,
   renderBottomTwine: PropTypes.bool,
   renderTopTwine: PropTypes.bool,
 };

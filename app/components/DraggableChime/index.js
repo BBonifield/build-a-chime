@@ -17,7 +17,8 @@ import Chime from 'components/Chime';
 const cardSource = {
   beginDrag(props) {
     return {
-      chimeStyle: props.chimeStyle
+      chimeStyle: props.chimeStyle,
+      chimePosition: props.chimePosition,
     };
   }
 };
@@ -47,8 +48,10 @@ DraggableChime.propTypes = {
   isDragging: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired,
 
-  // interface for Chime
   chimeStyle: PropTypes.string.isRequired,
+  chimePosition: PropTypes.number,
+
+  // interface for Chime
   renderBottomTwine: PropTypes.bool,
   renderTopTwine: PropTypes.bool,
 };
