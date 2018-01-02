@@ -19,7 +19,7 @@ const Self = styled.div`
     width: 100px;
   }
 
-  img.moveable {
+  img.chime {
     cursor: grab;
 
     &:active {
@@ -29,16 +29,15 @@ const Self = styled.div`
 `;
 
 function Chime(props) {
-  const moveable = props.chimeStyle !== 'blank';
+  const { chimeStyle, renderTopTwine, renderBottomTwine } = props;
 
-  const className = moveable ? 'moveable' : '';
-  const src = `chime-${props.chimeStyle}.svg`;
+  const src = `chime-${chimeStyle}.svg`;
 
   return (
     <Self>
-      {props.renderTopTwine ? ChimeTwine({ position: 'top' }) : ''}
-      {props.renderBottomTwine ? ChimeTwine({ position: 'bottom' }) : ''}
-      <img src={src} className={className} />
+      {renderTopTwine ? ChimeTwine({ position: 'top' }) : ''}
+      {renderBottomTwine ? ChimeTwine({ position: 'bottom' }) : ''}
+      <img className="chime" src={src} />
     </Self>
   );
 }

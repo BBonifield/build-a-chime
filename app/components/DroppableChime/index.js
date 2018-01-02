@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd'
 // import styled from 'styled-components';
 
-import Chime from 'components/Chime';
+import DraggableChime from 'components/DraggableChime';
 
 const chimeTarget = {
   drop(props, monitor) {
@@ -30,7 +30,7 @@ function DroppableChime(props) {
 
   return connectDropTarget(
     <div style={{ display: 'inline-block' }}>
-      <Chime {...props} />
+      <DraggableChime {...props} />
     </div>
   );
 }

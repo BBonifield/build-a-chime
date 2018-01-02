@@ -33,11 +33,11 @@ function collect(connect, monitor) {
 }
 
 function DraggableChime(props) {
-  const { chimeStyle, isDragging, connectDragSource } = props;
+  const { isDragging, connectDragSource } = props;
 
   return connectDragSource(
-    <div style={{ display: 'inline-block', opacity: isDragging ? 0.5 : 1 }}>
-      <Chime style={{ opacity: isDragging ? 0.5 : 1 }} chimeStyle={chimeStyle} />
+    <div style={{ display: 'inline-block' }}>
+      <Chime style={{ opacity: isDragging ? 0.5 : 1 }} {...props} />
     </div>
   );
 }
