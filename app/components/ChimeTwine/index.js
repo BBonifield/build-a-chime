@@ -12,6 +12,8 @@ const Self = styled.img`
   position: absolute;
   top: 0;
   left: 0;
+  pointer-events: none;
+  z-index: 100;
 `;
 
 function ChimeTwine(props) {

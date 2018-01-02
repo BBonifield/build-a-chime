@@ -25,9 +25,9 @@ function Chime(props) {
 
   return (
     <Self>
-      <img src={src} />
       {props.renderTopTwine ? ChimeTwine({ position: 'top' }) : ''}
       {props.renderBottomTwine ? ChimeTwine({ position: 'bottom' }) : ''}
+      <img src={src} />
     </Self>
   );
 }
