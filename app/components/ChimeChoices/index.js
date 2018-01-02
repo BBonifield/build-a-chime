@@ -21,14 +21,6 @@ const StyledContainer = styled(Container)`
   border-radius: 30px;
   border: 2px solid #eee;
   padding: 1em 0;
-
-  img {
-    cursor: grab;
-  }
-
-  img:active {
-    cursor: grabbing;
-  }
 `;
 
 class ChimeChoices extends React.Component { // eslint-disable-line react/prefer-stateless-function
