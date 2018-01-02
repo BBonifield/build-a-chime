@@ -13,12 +13,40 @@ import { AVAILABLE_CHIME_STYLES } from './constants';
 
 import DraggableChime from 'components/DraggableChime';
 
+const StyledContainer = styled(Container)`
+  overflow: hidden;
+  clear: both;
+  text-align: center;
+  background: white;
+  border-radius: 30px;
+  border: 2px solid #eee;
+  padding: 1em 0;
+
+  img {
+    cursor: grab;
+  }
+
+  img:active {
+    cursor: grabbing;
+  }
+`;
+
 class ChimeChoices extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <Container fluid style={{ overflow: 'hidden', clear: 'both', textAlign: 'center' }}>
+      <StyledContainer fluid>
+        <Row>
+          <Col>
+            <h3>Chime Choices:</h3>
+          </Col>
+        </Row>
         {this.styles()}
-      </Container>
+        <Row style={{ marginTop: '1em' }}>
+          <Col>
+            <p>More options coming soon...</p>
+          </Col>
+        </Row>
+      </StyledContainer>
     );
   }
 
@@ -26,11 +54,18 @@ class ChimeChoices extends React.Component { // eslint-disable-line react/prefer
     return AVAILABLE_CHIME_STYLES.map((style, idx) => {
       const key = `choice-row-${idx}`;
       return (
-        <Row key={key}>
-          <Col>
-            <DraggableChime chimeStyle={style} />
-          </Col>
-        </Row>
+        <div key={key} style={{ padding: '0.2em' }}>
+          <Row>
+            <Col style={{ textTransform: 'capitalize' }}>
+              {style}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <DraggableChime chimeStyle={style} />
+            </Col>
+          </Row>
+        </div>
       );
     });
   }

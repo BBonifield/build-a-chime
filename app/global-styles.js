@@ -14,15 +14,6 @@ injectGlobal`
     font-family: 'Courgette', cursive;
   }
 
-  h1 {
-    font-size: 3em;
-    margin: 0;
-  }
-
-  h3 {
-    margin: 1em 0 0;
-  }
-
   #app {
     background: url(${background});
     min-height: 100%;
@@ -31,7 +22,7 @@ injectGlobal`
 
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Courgette', cursive;
     line-height: 1.5em;
   }
 `;

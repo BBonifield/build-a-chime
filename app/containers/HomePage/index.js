@@ -15,7 +15,6 @@ import React from 'react';
 import HTML5Backend from 'react-dnd-html5-backend'
 import { Container, Row, Col } from 'react-grid-system';
 import { DragDropContextProvider } from 'react-dnd'
-import { FormattedMessage } from 'react-intl';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -27,9 +26,10 @@ import injectReducer from 'utils/injectReducer';
 import messages from './messages';
 import reducer from './reducer';
 
-import ChimesCountSelector from 'components/ChimesCountSelector';
 import ChimeChoices from 'components/ChimeChoices';
 import ChimesPreview from 'components/ChimesPreview';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
 
 import '!file-loader?name=[name].[ext]!images/chime-brown.svg';
 import '!file-loader?name=[name].[ext]!images/chime-tan.svg';
@@ -44,37 +44,24 @@ import '!file-loader?name=[name].[ext]!images/wall-peg.svg';
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <DragDropContextProvider backend={HTML5Backend}>
-        <Container fluid>
-          <Row style={{ background: 'white' }}>
-            <Col>
-              <h1 style={{ textAlign: 'center' }}>
-                <FormattedMessage {...messages.header} />
-              </h1>
-            </Col>
-          </Row>
-          <Row style={{ background: 'white' }}>
-            <Col>
-              <h3 style={{ textAlign: 'center' }}>
-                <FormattedMessage {...messages.chimeCount} />
-              </h3>
-            </Col>
-          </Row>
-          <Row style={{ background: 'white', borderBottom: '1px solid #ddd', marginBottom: '1em' }}>
-            <Col>
-              <ChimesCountSelector chimeCount={this.props.chimeCount} />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={6} md={3} offset={{ md: 3 }}>
-              <ChimesPreview chimes={this.props.chimes} />
-            </Col>
-            <Col xs={6} md={3}>
-              <ChimeChoices />
-            </Col>
-          </Row>
-        </Container>
-      </DragDropContextProvider>
+      <div>
+        <Header chimeCount={this.props.chimeCount}/>
+
+        <DragDropContextProvider backend={HTML5Backend}>
+          <Container fluid>
+            <Row>
+              <Col xs={6} md={3} offset={{ md: 3 }}>
+                <ChimesPreview chimes={this.props.chimes} />
+              </Col>
+              <Col xs={6} md={3}>
+                <ChimeChoices />
+              </Col>
+            </Row>
+          </Container>
+        </DragDropContextProvider>
+
+        <Footer />
+      </div>
     );
   }
 }
@@ -84,16 +71,12 @@ HomePage.propTypes = {
   chimes: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export function mapDispatchToProps(dispatch) {
-  return {};
-}
-
 const mapStateToProps = createStructuredSelector({
   chimeCount: makeSelectChimeCount(),
   chimes: makeSelectChimes(),
 });
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withConnect = connect(mapStateToProps);
 const withReducer = injectReducer({ key: 'global', reducer });
 
 // reducer must come before connect in order to properly set default global state
