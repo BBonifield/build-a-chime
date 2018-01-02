@@ -46,7 +46,11 @@ DraggableChime.propTypes = {
   // Injected by React DnD:
   isDragging: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired,
+
+  // interface for Chime
   chimeStyle: PropTypes.string.isRequired,
+  renderBottomTwine: PropTypes.bool,
+  renderTopTwine: PropTypes.bool,
 };
 
 export default DragSource('Chime', cardSource, collect)(DraggableChime);

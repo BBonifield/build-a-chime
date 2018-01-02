@@ -37,7 +37,11 @@ function DroppableChime(props) {
 
 DroppableChime.propTypes = {
   onDrop: PropTypes.func.isRequired,
+
+  // interface for Chime
   chimeStyle: PropTypes.string.isRequired,
+  renderBottomTwine: PropTypes.bool,
+  renderTopTwine: PropTypes.bool,
 };
 
 export default DropTarget('Chime', chimeTarget, collect)(DroppableChime);
