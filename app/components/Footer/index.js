@@ -22,13 +22,16 @@ const Self = styled.div`
     padding-top: 0.2em;
     width: 100px;
   }
+
+  h5 {
+    margin: 0;
+  }
 `;
 
 function Footer() {
   return (
     <Self>
-      a product of
-      <br/>
+      <h5>a product of</h5>
       <a href="http://fettleandfire.com" target="_blank">
         <img className="logo" src={logo} />
       </a>

@@ -33,6 +33,7 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import PurchaseButton from 'components/PurchaseButton';
 import Sidebar from './Sidebar';
+import TestModal from 'components/TestModal';
 
 import { CHIME_STYLE_BLANK } from 'containers/App/constants';
 
@@ -67,6 +68,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             </Row>
           </Container>
         </DragDropContextProvider>
+
+        <TestModal chimeCount={this.props.chimeCount} />
 
         <Footer />
       </div>

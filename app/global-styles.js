@@ -11,7 +11,7 @@ injectGlobal`
   }
 
   body {
-    font-family: 'Courgette', cursive;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #app {
@@ -20,9 +20,12 @@ injectGlobal`
     min-width: 100%;
   }
 
+  h1, h2, h3, h4, h5 {
+    font-family: 'Courgette', cursive;
+  }
+
   p,
   label {
-    font-family: 'Courgette', cursive;
     line-height: 1.5em;
   }
 `;
