@@ -35,9 +35,9 @@ function Chime(props) {
 
   return (
     <Self>
+      <img className="chime" src={src} />
       {renderTopTwine ? ChimeTwine({ position: 'top' }) : ''}
       {renderBottomTwine ? ChimeTwine({ position: 'bottom' }) : ''}
-      <img className="chime" src={src} />
     </Self>
   );
 }
