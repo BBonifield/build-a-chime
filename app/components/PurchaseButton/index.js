@@ -47,7 +47,7 @@ function PurchaseButton(props) {
   const title = props.enabled ? '' : 'Select all chimes to continue';
 
   return (
-    <Button disabled={!props.enabled} title={title}>
+    <Button disabled={!props.enabled} onClick={props.onClick} title={title}>
       <FormattedMessage {...messages.buyNow} />
     </Button>
   );
@@ -55,6 +55,7 @@ function PurchaseButton(props) {
 
 PurchaseButton.propTypes = {
   enabled: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default PurchaseButton;

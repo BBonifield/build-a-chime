@@ -48,6 +48,14 @@ import '!file-loader?name=[name].[ext]!images/chime-twine-bottom.svg';
 import '!file-loader?name=[name].[ext]!images/wall-peg.svg';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      paymentModalOpen: false
+    };
+  }
+
   render() {
     return (
       <div>
@@ -62,14 +70,18 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
               <Col xs={6} md={3}>
                 <Sidebar>
                   <ChimeChoices />
-                  <PurchaseButton enabled={this.purchaseEnabled()} />
+                  <PurchaseButton enabled={this.purchaseEnabled()} onClick={this.togglePaymentModal.bind(this)} />
                 </Sidebar>
               </Col>
             </Row>
           </Container>
         </DragDropContextProvider>
 
-        <TestModal chimeCount={this.props.chimeCount} />
+        <TestModal
+          chimeCount={this.props.chimeCount}
+          isOpen={this.state.paymentModalOpen}
+          onCancel={this.togglePaymentModal.bind(this)}
+        />
 
         <Footer />
       </div>
@@ -78,6 +90,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
 
   purchaseEnabled() {
     return every(this.props.chimes, (chimeStyle) => chimeStyle !== CHIME_STYLE_BLANK);
+  }
+
+  togglePaymentModal() {
+    this.setState({ paymentModalOpen: !this.state.paymentModalOpen });
   }
 }
 
