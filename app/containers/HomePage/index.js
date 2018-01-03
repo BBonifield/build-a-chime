@@ -33,7 +33,7 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import PurchaseButton from 'components/PurchaseButton';
 import Sidebar from './Sidebar';
-import TestModal from 'components/TestModal';
+import PurchaseModal from 'components/PurchaseModal';
 
 import { CHIME_STYLE_BLANK } from 'containers/App/constants';
 
@@ -77,7 +77,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           </Container>
         </DragDropContextProvider>
 
-        <TestModal
+        <PurchaseModal
           chimeCount={this.props.chimeCount}
           isOpen={this.state.paymentModalOpen}
           onCancel={this.togglePaymentModal.bind(this)}

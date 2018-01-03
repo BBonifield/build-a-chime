@@ -1,6 +1,6 @@
 /**
 *
-* TestModal
+* PurchaseModal
 *
 */
 
@@ -14,7 +14,7 @@ import PaymentForm from 'components/PaymentForm';
 
 import squareBrand from 'images/square-brand.png';
 
-class TestModal extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class PurchaseModal extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <Modal show={this.props.isOpen}>
@@ -56,9 +56,9 @@ class TestModal extends React.Component { // eslint-disable-line react/prefer-st
   }
 }
 
-TestModal.propTypes = {
+PurchaseModal.propTypes = {
   chimeCount: PropTypes.number.isRequired,
   onCancel: PropTypes.func.isRequired,
 };
 
-export default TestModal;
+export default PurchaseModal;
